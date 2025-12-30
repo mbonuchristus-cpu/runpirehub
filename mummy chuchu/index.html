@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Runpire Hair Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="runpire.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ===============================
+   GLOBAL STYLES
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f8efe6;
+  color: #2b1b12;
+  scroll-behavior: smooth;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: #e6d2bd;
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.nav-left img {
+  height: 32px;
+}
+
+.nav nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #2b1b12;
+  font-size: 14px;
+}
+
+
+
+/* HERO SECTION */
+.hero {
+  height: 80vh;
+  background: url('hero.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.hero-text {
+  max-width: 500px;
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #c58a4a;
+  color: #fff;
+}
+
+.secondary {
+  background: #fff;
+  color: #2b1b12;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 60px;
+  background: #f3e6d8;
+  text-align: center;
+}
+.icon a,i:hover{
+  cursor: pointer;
+  color: #c58a4a;
+  /* box-shadow: 0px 4px 7px #c58a4a; */
+}
+
+.feature span {
+  font-size: 30px;
+}
+
+.feature h4 {
+  margin-top: 10px;
+}
+
+.feature p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* WHY US */
+.why {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.why-image {
+  background: url("d76233ce-4e3f-40a4-9c2f-0af56971153d.png") center/cover no-repeat;
+}
+
+.why-text {
+  padding: 80px;
+  background: #e0c4a8;
+}
+
+.why-text button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  background: #2b1b12;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ABOUT SECTION */
+.about {
+  padding: 60px;
+  display: flex;
+  gap: 40px;
+  background: #f3e6d8;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about img {
+  max-width: 400px;
+  border-radius: 15px;
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text h2 {
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* PROMO */
+.promo {
+  text-align: center;
+  padding: 60px;
+}
+
+.promo button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: #c58a4a;
+  border: none;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery .grid a {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery .grid a img {
+  width: 100%;
+  height: 250px; /* fixed height to make uniform */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.gallery .grid a:hover img {
+  transform: scale(1.05);
+}
+/* Navigation link hover underline */
+.nav nav a {
+  position: relative;
+  text-decoration: none;
+  color: #2b1b12;
+  font-size: 14px;
+  margin-left: 25px;
+  padding-bottom: 5px;
+}
+
+.nav nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #c58a4a;
+  transition: width 0.3s ease;
+}
+
+.nav nav a:hover::after {
+  width: 100%;
+}
+
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #2b1b12;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 15px 30px;
+  }
+  .hero {
+    padding: 0 40px;
+    height: 70vh;
+  }
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
+  .why {
+    grid-template-columns: 1fr;
+  }
+  .why-text {
+    padding: 50px;
+  }
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  nav nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #c58a4a;
+  transition: width 0.3s ease;
+}
+
+.nav nav a:focus::after {
+  width: 100%;
+}
+}
+
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-buttons button {
+    width: 100%;
+  }
+  .features {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    gap: 25px;
+  }
+  .why-text {
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .about {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+  .gallery .grid {
+    grid-template-columns: 1fr;
+  }
+  nav nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #c58a4a;
+  transition: width 0.3s ease;
+}
+
+.nav nav a:focus::after {
+  width: 100%;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-left">
+    <img src="runpire.png" alt="Logo">
+    <span>Runpire Hub</span>
+  </div>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#why">Why Us</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#promo">Promo</a>
+    <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
+    <a href="#reviews">Reviews</a>
+
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <h1>Reveal Your Hair’s True Beauty</h1>
+    <p>Premium oils, creams, and treatments crafted to nourish, strengthen, and protect every strand.</p>
+    <div class="hero-buttons">
+      <button class="primary" onclick="window.location='#gallery'">Shop Now</button>
+      <button class="secondary" onclick="window.location='#about'">Learn More</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <img src="data:image/webp;base64,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" alt="Hair Products">
+  <div class="about-text">
+    <h2>About Runpire Hub</h2>
+    <p>Runpire Hub is Lagos' premier destination for hair care products, offering a wide range of oils, creams, and serums designed to nourish and protect all hair types. Our products are formulated with high-quality, safe ingredients to ensure healthy, beautiful hair.</p>
+    <p>With years of expertise in the beauty industry, we aim to empower individuals to embrace their natural hair and achieve their desired hair goals effortlessly.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <span>🌿</span>
+    <h4>Hair Growth Oil</h4>
+    <p>Stimulates growth and strengthens roots.</p>
+  </div>
+  <div class="feature">
+    <span>💧</span>
+    <h4>Moisture Cream</h4>
+    <p>Deep hydration without grease.</p>
+  </div>
+  <div class="feature">
+    <span>✨</span>
+    <h4>Shine Serum</h4>
+    <p>Instant glow and smooth finish.</p>
+  </div>
+  <div class="feature">
+    <span>🛡️</span>
+    <h4>Scalp Treatment</h4>
+    <p>Protects and refreshes the scalp.</p>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-image"></div>
+  <div class="why-text">
+    <h2>Why Choose Runpire?</h2>
+    <p>Our products are carefully formulated using high-quality, hair-safe ingredients designed for all hair types. Experience luxurious hair care and visible results.</p>
+    <button onclick="window.location='#gallery'">Explore Products</button>
+  </div>
+</section>
+
+<!-- PROMO / CONTACT -->
+<section class="promo" id="promo">
+  <h3>Available Daily</h3>
+  <p>Orders processed from <strong>10am – 8pm</strong></p>
+  <button onclick="window.open('https://wa.me/2348033752743?text=Hi! I would like to order your products.')">Order via WhatsApp</button>
+</section>
+
+<!-- GALLERY -->
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <h2 style="text-align:center; margin-bottom:30px;">Our Best Sellers</h2>
+  <div class="grid">
+    <a href="https://wa.me/2348033752743?text=Hi! I love your products 💕">
+      <img src="edgeco.png" alt="Product 1">
+    </a>
+    <a href="https://wa.me/2348033752743?text=Hi! I love your products 💕">
+      <img src="https://th.bing.com/th/id/OIP.LalJunYlWp1iC7gMzGcHTgHaFj?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="Product 2">
+    </a>
+    <a href="https://wa.me/2348033752743?text=Hi! I love your products 💕">
+      <img src="https://th.bing.com/th/id/OIP.YwcfvwPsmebVe8_oh_ELQQHaHZ?w=228&h=220&c=7&r=0&o=7&pid=1.7&rm=3" alt="Product 3">
+    </a>
+    <a href="https://wa.me/2348033752743?text=Hi! I love your products 💕">
+      <img src="https://th.bing.com/th/id/OIP.bpUKp0rR0kBUivM1RBBuXwHaHa?w=181&h=193&c=7&r=0&o=7&pid=1.7&rm=3" alt="Product 4">
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#2b1b12; color:#fff; padding:60px 20px;">
+  <div style="display:flex; flex-wrap:wrap; gap:50px; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+    <!-- About / Logo -->
+    <div style="flex:1; min-width:250px;">
+      <img src="runpire.png" alt="Runpire Hub Logo" width="190px" style="  height:190px; margin-bottom:15px;">
+      <p>Runpire Hub – Premium hair care products crafted to nourish and protect all hair types. Available across Lagos.</p>
+      
+      <!-- Social Media -->
+      <div  class="icons"style="margin-top:15px;" ondrag="toggleMenu()">
+        <a href="https://instagram.com/runpirehub" target="_blank" style="margin-right:10px; color:#fff; font-size:20px;"><i class="fab   fa-instagram" ></i></a>
+        <a href="https://facebook.com/runpirehub" target="_blank" style="margin-right:10px; color:#fff; font-size:20px;"><i class="fab   fa-facebook-f" ></i></a>
+        <a href="https://tiktok.com/runpirehub" target="_blank" style="color:#fff; font-size:20px;"><i class="fab   fa-tiktok" ></i></a>
+      </div>
+    </div>
+
+    <!-- Location Map -->
+    <div style="flex:1; min-width:250px;" id="location">
+      <h3 style="margin-bottom:15px;">Find Us</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.19!2d3.312557!3d6.466667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2f31200001%3A0x9c9f9f9f9f9f9f9f!2sTrade%20Fair%20Complex%2C%20Lagos!5e0!3m2!1sen!2sng!4v1735320000000!5m2!1sen!2sng" 
+        width="100%" height="200" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Reviews / Testimonials -->
+    <div style="flex:1; min-width:250px;" id="reviews">
+      <h3 style="margin-bottom:15px;">What Our Customers Say</h3>
+      <div style="margin-bottom:15px; background:#3b2920; padding:15px; border-radius:10px;">
+        <p>"The hair growth oil changed my hair completely! My hair feels stronger and healthier." <br><strong>- Ada N.</strong></p>
+      </div>
+      <div style="margin-bottom:15px; background:#3b2920; padding:15px; border-radius:10px;">
+        <p>"I love the moisture cream. It’s non-greasy and keeps my hair soft all day." <br><strong>- Funke O.</strong></p>
+      </div>
+      <div style="background:#3b2920; padding:15px; border-radius:10px;">
+        <p>"Fast delivery and excellent customer service. Highly recommend Runpire Hub!" <br><strong>- Chidera M.</strong></p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="text-align:center; margin-top:40px;">© 2025 Runpire Hub | All Rights Reserved</p>
+</footer>
+
+
+<script>
+  // Smooth scrolling for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
